@@ -244,7 +244,7 @@
         <div class="section-head reveal">
           <p class="section-label">Instagram</p>
           <h2 id="instagram-title">Instagramでも発信しています</h2>
-          <p>Web制作やAI活用について、Instagramでも情報を発信しています。ホームページの整え方、LPのこと、発信とサイトのつなぎ方などを投稿しています。</p>
+          <p>ホームページ制作、LP制作、Webサイト改善、AI活用、SNSとホームページの連携、自主制作サイトの紹介について発信しています。</p>
           <p class="note">下のカードは発信テーマの紹介です。実際の投稿画面ではありません。</p>
         </div>
         <p class="scroll-hint">横にスライドしてご覧ください</p>
@@ -252,47 +252,42 @@
           <li class="theme">
             <div class="theme-art art-1" aria-hidden="true"></div>
             <p class="theme-label">テーマ 01</p>
-            <h3>Web制作に関する情報</h3>
-            <p>サイトづくりで大切にしていること</p>
+            <h3>ホームページ制作</h3>
+            <p>事業の魅力が伝わるサイトづくり</p>
           </li>
           <li class="theme">
             <div class="theme-art art-2" aria-hidden="true"></div>
             <p class="theme-label">テーマ 02</p>
-            <h3>ホームページ改善のポイント</h3>
-            <p>見やすさと、情報の整理</p>
+            <h3>LP制作</h3>
+            <p>1枚のページで魅力を伝える</p>
           </li>
           <li class="theme">
             <div class="theme-art art-3" aria-hidden="true"></div>
             <p class="theme-label">テーマ 03</p>
-            <h3>LP制作について</h3>
-            <p>1枚のページで魅力を伝える</p>
+            <h3>Webサイト改善</h3>
+            <p>見やすさと、情報の整理</p>
           </li>
           <li class="theme">
             <div class="theme-art art-4" aria-hidden="true"></div>
             <p class="theme-label">テーマ 04</p>
-            <h3>Instagramとホームページの連携</h3>
-            <p>発信とサイトのつなぎ方</p>
+            <h3>AI活用</h3>
+            <p>文章作成や情報整理のヒント</p>
           </li>
           <li class="theme">
             <div class="theme-art art-5" aria-hidden="true"></div>
             <p class="theme-label">テーマ 05</p>
-            <h3>AI活用について</h3>
-            <p>文章作成や情報整理のヒント</p>
+            <h3>SNSとホームページの連携</h3>
+            <p>発信とサイトのつなぎ方</p>
           </li>
           <li class="theme">
             <div class="theme-art art-6" aria-hidden="true"></div>
             <p class="theme-label">テーマ 06</p>
-            <h3>自主制作したサイトの紹介</h3>
+            <h3>自主制作サイトの紹介</h3>
             <p>サンプルサイトの様子</p>
           </li>
         </ul>
         <div class="ig-action reveal">
-          <a class="btn btn-primary" data-instagram-link hidden target="_blank" rel="noopener noreferrer">Instagramの投稿を見る</a>
-          <button class="btn btn-primary" type="button" data-instagram-fallback disabled>
-            Instagramの投稿を見る
-            <span class="btn-state">URL未設定</span>
-          </button>
-          <p class="pending" data-instagram-note>InstagramのURLは未設定です。アカウントが決まり次第、このボタンから投稿を開けるようにします。</p>
+          <a class="btn btn-primary" data-instagram-link href="https://www.instagram.com/emi.skm1008/" target="_blank" rel="noopener noreferrer">Instagramの投稿を見る<span class="sr-only">（新しいタブで開きます）</span></a>
         </div>
       </div>
     </section>
@@ -335,21 +330,73 @@
           <h2 id="contact-title">まずはお気軽に<br>ご相談ください</h2>
           <p class="contact-lead">ホームページを作りたい方、<br>今あるサイトを見直したい方、<br>WebやAIの活用について相談したい方。</p>
           <p>事業の状況に合わせて、一緒に考えます。</p>
+          <div class="contact-aside">
+            <a class="btn btn-primary" data-instagram-link href="https://www.instagram.com/emi.skm1008/" target="_blank" rel="noopener noreferrer">Instagramから相談する<span class="sr-only">（新しいタブで開きます）</span></a>
+          </div>
         </div>
         <div class="contact-panel reveal">
-          <a class="btn btn-primary" data-instagram-link hidden target="_blank" rel="noopener noreferrer">Instagramから相談する</a>
-          <button class="btn btn-primary" type="button" data-instagram-fallback disabled>
-            Instagramから相談する
-            <span class="btn-state">URL未設定</span>
-          </button>
-          <button class="btn" type="button" disabled>
-            お問い合わせ
-            <span class="btn-state">送信先未設定</span>
-          </button>
-          <ul class="pending-list">
-            <li data-instagram-note>InstagramのURLは未設定です。アカウントが決まり次第、ボタンからご相談いただけるようにします。</li>
-            <li>お問い合わせフォームは、送信先が決まるまで設置していません。このボタンから送信はできません。</li>
-          </ul>
+          <!-- contactEndpoint が空のあいだは送信ボタンを無効にします。手順は gas/Code.gs を参照。 -->
+          <h3 class="form-heading">お問い合わせフォーム</h3>
+          <p class="pending" id="endpoint-note">送信先の準備が完了するまで、このフォームからは送信できません。ご相談はInstagramからお願いします。</p>
+          <form id="contact-form" class="contact-form" action="" method="post" novalidate aria-describedby="endpoint-note">
+            <p class="form-legend"><span class="req">必須</span>は入力が必要な項目です。</p>
+            <div class="field">
+              <label for="contact-name">お名前<span class="req">必須</span></label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required maxlength="80" aria-required="true">
+              <p class="field-error" id="contact-name-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="contact-business">事業者名・屋号<span class="opt">任意</span></label>
+              <input id="contact-business" name="business" type="text" autocomplete="organization" maxlength="120">
+              <p class="field-error" id="contact-business-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="contact-email">メールアドレス<span class="req">必須</span></label>
+              <input id="contact-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" required maxlength="254" aria-required="true">
+              <p class="field-error" id="contact-email-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="contact-type">お問い合わせ内容<span class="req">必須</span></label>
+              <select id="contact-type" name="type" required aria-required="true">
+                <option value="">選択してください</option>
+                <option>ホームページ制作について</option>
+                <option>LP制作について</option>
+                <option>既存サイトの改善について</option>
+                <option>AI活用について</option>
+                <option>SNS運用について</option>
+                <option>その他</option>
+              </select>
+              <p class="field-error" id="contact-type-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="contact-message">ご相談内容<span class="req">必須</span></label>
+              <textarea id="contact-message" name="message" required maxlength="4000" aria-required="true"></textarea>
+              <p class="field-error" id="contact-message-error" hidden></p>
+            </div>
+            <div class="field">
+              <div class="consent">
+                <input id="contact-consent" name="consent" type="checkbox" value="yes" required aria-required="true">
+                <label for="contact-consent">個人情報の取り扱いに同意します<span class="req">必須</span></label>
+              </div>
+              <p class="consent-note"><a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシーを確認する<span class="sr-only">（新しいタブで開きます）</span></a></p>
+              <p class="field-error" id="contact-consent-error" hidden></p>
+            </div>
+            <div class="hp-field" aria-hidden="true" inert>
+              <label for="contact-hp">会社サイト</label>
+              <input id="contact-hp" name="hp_field" type="text" tabindex="-1" autocomplete="off" value="">
+            </div>
+            <div class="form-alert" id="contact-alert" role="alert" hidden></div>
+            <button class="btn btn-primary form-submit is-unavailable" id="contact-submit" type="submit" disabled>
+              お問い合わせを送信する
+              <span class="btn-state">送信先未設定</span>
+            </button>
+          </form>
+          <div class="form-success" id="contact-success" role="status" tabindex="-1" hidden>
+            <p>お問い合わせありがとうございます。<br>内容を確認のうえ、ご連絡いたします。</p>
+          </div>
+          <noscript>
+            <p class="pending">フォームの送信にはJavaScriptが必要です。ご相談はInstagramからお願いします。</p>
+          </noscript>
         </div>
       </div>
     </section>
@@ -360,6 +407,7 @@
       <div>
         <p class="footer-name">佐久間</p>
         <p>愛知県豊田市 / オンライン対応</p>
+        <p class="footer-external"><a data-instagram-link href="https://www.instagram.com/emi.skm1008/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only">（新しいタブで開きます）</span></a></p>
       </div>
       <nav aria-label="フッターメニュー">
         <a href="#about">About</a>
@@ -369,6 +417,7 @@
         <a href="#instagram">Instagram</a>
         <a href="#flow">Flow</a>
         <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy</a>
       </nav>
       <p class="copyright"><small>© 2026 佐久間</small></p>
     </div>
@@ -376,5 +425,6 @@
 
   <script src="js/site-config.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>
