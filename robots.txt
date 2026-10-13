@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emi1126.github.io/emi.skm1008/sitemap.xml
