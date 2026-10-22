@@ -88,23 +88,23 @@
   function validate() {
     var errors = [];
     var name = field("contact-name").value.trim();
-    var business = field("contact-business").value.trim();
+    var company = field("contact-business").value.trim();
     var email = field("contact-email").value.trim();
-    var type = field("contact-type").value;
+    var category = field("contact-type").value;
     var message = field("contact-message").value.trim();
     var agreed = field("contact-consent").checked;
 
     if (!name) errors.push(["contact-name", "お名前を入力してください。"]);
     else if (name.length > 80) errors.push(["contact-name", "お名前は80文字以内で入力してください。"]);
 
-    if (business.length > 120) errors.push(["contact-business", "事業者名・屋号は120文字以内で入力してください。"]);
+    if (company.length > 120) errors.push(["contact-business", "事業者名・屋号は120文字以内で入力してください。"]);
 
     if (!email) errors.push(["contact-email", "メールアドレスを入力してください。"]);
     else if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errors.push(["contact-email", "メールアドレスの形式を確認してください。"]);
     }
 
-    if (!type || types.indexOf(type) === -1) {
+    if (!category || types.indexOf(category) === -1) {
       errors.push(["contact-type", "お問い合わせ内容を選択してください。"]);
     }
 
@@ -118,9 +118,9 @@
       errors: errors,
       values: {
         name: name,
-        business: business,
+        company: company,
         email: email,
-        type: type,
+        category: category,
         message: message
       }
     };
@@ -193,11 +193,11 @@
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({
         name: result.values.name,
-        business: result.values.business,
+        company: result.values.company,
         email: result.values.email,
-        type: result.values.type,
+        category: result.values.category,
         message: result.values.message,
-        hp_field: hp ? hp.value : "",
+        website: hp ? hp.value : "",
         startedAt: startedAt
       }),
       signal: controller.signal
