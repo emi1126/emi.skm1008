@@ -72,6 +72,25 @@
     });
   }
 
+  function saved(data) {
+    if (!data || typeof data !== "object") return false;
+    if (data.ok === false || data.success === false) return false;
+    if (data.message === "GAS is running") return false;
+    var result = typeof data.result === "string" ? data.result.toLowerCase() : "";
+    if (result === "error" || result === "failed" || result === "ng") return false;
+    if (data.ok === true || data.success === true) return true;
+    if (result === "success" || result === "ok" || result === "saved") return true;
+    var status = typeof data.status === "string" ? data.status.toLowerCase() : "";
+    return (status === "ok" || status === "success") && typeof data.message === "string" && data.message !== "";
+  }
+
+  function detailMessage(data) {
+    if (!data || typeof data.message !== "string") return "";
+    var text = data.message.trim();
+    if (!text || text.length > 120 || text.indexOf("<") !== -1) return "";
+    return text;
+  }
+
   function messageFor(code) {
     if (code === "duplicate") {
       return "同じ内容の送信が続いたため、受け付けられませんでした。時間をおいて、もう一度お試しください。";
@@ -212,9 +231,10 @@
       } catch (error) {
         data = null;
       }
-      if (!res.okStatus || !data || data.ok !== true) {
-        var code = data && data.error ? data.error : "failed";
-        throw new Error(code);
+      if (!res.okStatus || !saved(data)) {
+        var failure = new Error(data && data.error ? data.error : "failed");
+        failure.detail = detailMessage(data);
+        throw failure;
       }
       form.hidden = true;
       if (note) note.hidden = true;
@@ -222,7 +242,7 @@
       success.focus();
     }).catch(function (error) {
       var code = error && error.name === "AbortError" ? "timeout" : (error && error.message);
-      showAlert(messageFor(code));
+      showAlert(error && error.detail ? error.detail : messageFor(code));
       resetButton();
     }).then(function () {
       window.clearTimeout(timer);

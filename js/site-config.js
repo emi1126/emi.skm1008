@@ -7,5 +7,5 @@
    設定手順は gas/Code.gs の先頭に書いてあります。 */
 window.SITE_CONFIG = {
   instagramUrl: "https://www.instagram.com/emi.skm1008/",
-  contactEndpoint: ""
+  contactEndpoint: "https://script.google.com/macros/s/AKfycbw6_8JHwo6yNL6_niEaAOlDY-EDg5krKNTyXhGmYERHn_78-swWiBD-KQI1Z31cgNb0/exec"
 };
