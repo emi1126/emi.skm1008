@@ -1252,8 +1252,6 @@ button.form-submit.is-sending:disabled {
   letter-spacing: 0.04em;
 }
 
-.plan-points { margin-top: 0.6rem; }
-
 .plan-cta { margin-top: 2.6rem; }
 
 .compare-table td { min-width: 9.2rem; }
@@ -1265,7 +1263,6 @@ button.form-submit.is-sending:disabled {
   .compare-table { min-width: 0; }
   .compare-table td { min-width: 0; }
   .care-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .plan-points { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
