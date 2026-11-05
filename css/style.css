@@ -1186,6 +1186,21 @@ button.form-submit.is-sending:disabled {
 
 .plan-table thead .col-main { box-shadow: inset 0 2px 0 var(--pink-deep); }
 
+#price .plan-table th,
+#price .plan-table td {
+  padding: 1.05rem 0.85rem;
+}
+
+#price .plan-table tr.is-fee td {
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+#price .plan-table tr.is-fee .col-main {
+  color: var(--pink-deep);
+}
+
 .plan-note {
   display: block;
   margin-top: 0.25rem;
@@ -1255,6 +1270,36 @@ button.form-submit.is-sending:disabled {
 .plan-cta { margin-top: 2.6rem; }
 
 .compare-table td { min-width: 9.2rem; }
+
+@media (max-width: 859px) {
+  #price .plan-table {
+    min-width: 29.4rem;
+    table-layout: fixed;
+  }
+
+  #price .plan-table th,
+  #price .plan-table td {
+    padding: 0.85rem 0.4rem;
+  }
+
+  #price .plan-table .col-label,
+  #price .plan-table tbody th {
+    width: 7.2rem;
+    min-width: 7.2rem;
+    max-width: 7.2rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  #price .plan-table thead th:not(.col-label),
+  #price .plan-table td {
+    width: 7.4rem;
+  }
+
+  #price .plan-table td { white-space: nowrap; }
+
+  #price .plan-table tr.is-fee td { font-size: 0.92rem; }
+}
 
 @media (min-width: 860px) {
   #price .scroll-hint,
