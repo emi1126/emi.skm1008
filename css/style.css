@@ -402,6 +402,14 @@ button.btn { flex-direction: column; }
 
 .section-head { max-width: 40rem; margin-bottom: 2.8rem; }
 
+#compare .section-head { max-width: none; }
+
+#compare-title {
+  word-break: keep-all;
+  line-break: strict;
+  overflow-wrap: normal;
+}
+
 .section-label {
   margin-bottom: 0.7rem;
   color: var(--pink-deep);
@@ -1365,12 +1373,26 @@ button.form-submit.is-sending:disabled {
   #price .plan-table col.plan-col { width: 25.333%; }
 }
 
+#compare .compare-table th,
+#compare .compare-table td {
+  word-break: keep-all;
+  line-break: strict;
+  overflow-wrap: normal;
+}
+
 @media (min-width: 860px) {
   #price .scroll-hint,
   #compare .scroll-hint { display: none; }
   .plan-table { min-width: 0; }
-  .compare-table { min-width: 0; }
+  .compare-table { min-width: 0; table-layout: fixed; }
   .compare-table td { min-width: 0; }
+  #compare .compare-table col.compare-label { width: 18%; }
+  #compare .compare-table col.compare-us { width: 26%; }
+  #compare .compare-table .col-label,
+  #compare .compare-table tbody th {
+    min-width: 0;
+    max-width: none;
+  }
   .care-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
