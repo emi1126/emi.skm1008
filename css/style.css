@@ -41,14 +41,22 @@ a { color: inherit; }
 button,
 a { -webkit-tap-highlight-color: transparent; }
 
-h1, h2, h3, p { margin: 0; overflow-wrap: anywhere; }
+h1, h2, h3, p { margin: 0; }
 
 h1, h2, h3 {
   font-family: "Zen Old Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  overflow-wrap: normal;
+  word-break: keep-all;
+  line-break: strict;
+  overflow-wrap: break-word;
+}
+
+p {
+  line-break: strict;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 ul, ol { margin: 0; padding: 0; list-style: none; }
@@ -402,6 +410,21 @@ button.btn { flex-direction: column; }
 
 .section-head { max-width: 40rem; margin-bottom: 2.8rem; }
 
+.container,
+.about-grid,
+.about-grid > *,
+.about-body,
+.service-item,
+.work,
+.work > *,
+.strength-list > *,
+.steps > *,
+.section-head,
+.hero-copy,
+.contact-grid > * {
+  min-width: 0;
+}
+
 #compare .section-head { max-width: none; }
 
 #compare-title,
@@ -455,6 +478,14 @@ button.btn { flex-direction: column; }
 }
 
 .about-body { display: grid; gap: 1.1rem; }
+
+.about-body > *,
+.service-item > *,
+.work-body > *,
+.strength-list li > *,
+.steps li > * {
+  min-width: 0;
+}
 
 .about-tags {
   display: flex;
@@ -533,11 +564,13 @@ button.btn { flex-direction: column; }
   overflow: hidden;
   background: #efeae4;
   border: 1px solid var(--line);
+  aspect-ratio: 16 / 10;
 }
 
 .work-media img {
+  display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
 }
@@ -647,8 +680,16 @@ button.btn { flex-direction: column; }
 }
 
 .art-5 {
-  background-image: radial-gradient(circle at 32% 48%, transparent 14px, var(--pink) 15px, var(--pink) 26px, transparent 27px);
   background-color: #f7f1ef;
+  background-image: none;
+}
+
+.art-5 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .art-6 {
@@ -1119,6 +1160,8 @@ button.form-submit.is-sending:disabled {
     align-items: center;
     margin-top: 5rem;
   }
+
+  .work-reverse { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr); }
 
   .work-reverse .work-media { order: 2; }
 
