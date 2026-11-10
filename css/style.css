@@ -437,7 +437,32 @@ button.btn { flex-direction: column; }
 
 .about-grid { display: grid; gap: 1.6rem; }
 
+.about-place {
+  margin-top: 0.7rem;
+  color: var(--pink-deep);
+  font-size: 0.92rem;
+  letter-spacing: 0.14em;
+}
+
 .about-body { display: grid; gap: 1.1rem; }
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.8rem;
+}
+
+.about-tags li {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--blush);
+  color: var(--ink);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+.about-tags + .facts { margin-top: 1.6rem; }
 
 .facts {
   display: grid;
