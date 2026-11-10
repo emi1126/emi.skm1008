@@ -1211,10 +1211,50 @@ button.form-submit.is-sending:disabled {
 
 .plan-table thead .col-main { box-shadow: inset 0 2px 0 var(--pink-deep); }
 
+#price .plan-table {
+  table-layout: fixed;
+  width: 100%;
+  min-width: 36.5rem;
+}
+
+#price .plan-table col.label-col { width: 9.2rem; }
+#price .plan-table col.plan-col { width: 9.1rem; }
+
+#price .plan-table .col-label,
+#price .plan-table tbody th {
+  min-width: 0;
+  max-width: none;
+}
+
 #price .plan-table th,
 #price .plan-table td {
-  padding: 1.05rem 0.85rem;
+  padding: 1rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.5;
+  word-break: keep-all;
+  line-break: strict;
 }
+
+#price .plan-table thead th {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+#price .plan-name {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+}
+
+#price .plan-note-spacer { visibility: hidden; }
+
+#price .plan-table tbody th,
+#price .plan-table td {
+  font-size: 0.92rem;
+}
+
+#price .plan-table td { white-space: nowrap; }
 
 #price .plan-table tr.is-fee td {
   font-weight: 500;
@@ -1297,33 +1337,32 @@ button.form-submit.is-sending:disabled {
 .compare-table td { min-width: 9.2rem; }
 
 @media (max-width: 859px) {
-  #price .plan-table {
-    min-width: 29.4rem;
-    table-layout: fixed;
+  #price .plan-scroll {
+    container-type: inline-size;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline-start: 9.2rem;
   }
+
+  #price .plan-table {
+    width: calc(9.2rem + (100cqi - 9.2rem) * 3);
+    min-width: calc(9.2rem + (100cqi - 9.2rem) * 3);
+  }
+
+  #price .plan-table col.label-col { width: 9.2rem; }
+  #price .plan-table col.plan-col { width: calc(100cqi - 9.2rem); }
+
+  #price .plan-table thead th:not(.col-label) { scroll-snap-align: start; }
 
   #price .plan-table th,
   #price .plan-table td {
-    padding: 0.85rem 0.4rem;
+    padding: 0.9rem 0.55rem;
   }
+}
 
-  #price .plan-table .col-label,
-  #price .plan-table tbody th {
-    width: 7.2rem;
-    min-width: 7.2rem;
-    max-width: 7.2rem;
-    font-size: 0.82rem;
-    line-height: 1.5;
-  }
-
-  #price .plan-table thead th:not(.col-label),
-  #price .plan-table td {
-    width: 7.4rem;
-  }
-
-  #price .plan-table td { white-space: nowrap; }
-
-  #price .plan-table tr.is-fee td { font-size: 0.92rem; }
+@media (min-width: 860px) {
+  #price .plan-table { min-width: 0; }
+  #price .plan-table col.label-col { width: 24%; }
+  #price .plan-table col.plan-col { width: 25.333%; }
 }
 
 @media (min-width: 860px) {
